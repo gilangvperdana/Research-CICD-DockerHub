@@ -10,8 +10,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container:
-      image: lucasalt/act_base:latest
     steps:
       
     - name: Login to DockerHub
@@ -28,9 +26,9 @@ jobs:
         tags: gilangvperdana/research:nginxv1.0.2
 
     - name: Extract commit
-          shell: bash
-          run: |
-            echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+      shell: bash
+      run: |
+        echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
 
     - name: Get branch name (merge)
       if: github.event_name != 'pull_request'
