@@ -2,9 +2,9 @@ name: GCI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ another ]
   pull_request:
-    branches: [ master ]
+    branches: [ another ]
 
 jobs:
 
@@ -23,7 +23,7 @@ jobs:
       uses : docker/build-push-action@v2
       with :
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/research:nginxv.1.0.8
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/research:nginxv.1.0.8-another
 
     - name: Extract commit
       shell: bash
